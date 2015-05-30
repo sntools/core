@@ -1,0 +1,34 @@
+{
+    "name": "sntools/core",
+    "description": "Core tools of the SN Toolbox",
+    "type": "library",
+    "keywords": [],
+    "homepage": "https://github.com/sntools/core",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samy NAAMANI",
+            "email": "samy@namani.net"
+        }
+    ],
+    "support": {
+        "email": "samy@namani.net"
+    },
+    "require": {
+        "PHP": ">=5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "phpunit/phpunit-skeleton-generator": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SNTools\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SNTools\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,2 +1,3 @@
 # core
-Core tools for the SNTools toolbox
+Core tools of the SN Toolbox
+A more detailed README.md will come soon.
