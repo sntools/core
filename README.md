@@ -6,10 +6,10 @@ This particular package brings the Core Tools : tools that will come in handy in
 
 # Download
 
-The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "dev-master" can be replaced by any version you need :
+The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "~1.0" can be replaced by any version you need :
 
 ```
-"sntools/core": "dev-master"
+"sntools/core": "~1.0"
 ```
 
 # The NotImplementedException special exception type
