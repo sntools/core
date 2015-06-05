@@ -43,7 +43,7 @@ use SNTools\PropertyException;
  * @property string $name
  * @property \DateTime $birthday
  * @property-read int $age
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/core/blob/master/LICENSE MIT
  */
 class Person extends Object {
@@ -116,7 +116,7 @@ use SNTools\Object;
  * shared among them. The connexion cannot be overriden once it's been
  * called once.
  * @property-read \PDO $pdo
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/core/blob/master/LICENSE MIT
  */
 abstract class DAO extends Object{
@@ -149,7 +149,7 @@ Unit tests have been provided, using PHPUnit, in the tests/ subfolder.
 
 # Contributors
 
-Samy NAAMANI <samy@namani.net>
+Samy Naamani <samy@namani.net>
 
 # License
 
