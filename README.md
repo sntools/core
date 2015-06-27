@@ -9,7 +9,7 @@ This particular package brings the Core Tools : tools that will come in handy in
 The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "~1.0" can be replaced by any version you need :
 
 ```
-"sntools/core": "~1.0"
+"sntools/core": "~1.1"
 ```
 
 # The NotImplementedException special exception type
@@ -141,7 +141,11 @@ abstract class DAO extends Object{
 
 # API Reference
 
-More detailed documentation is avilable as HTML files, in the docs/ subfolder.
+To generate the documentation, use the apigen.neon file to generate it in a "docs" folder
+
+```
+> apigen generate
+```
 
 # Testing
 
