@@ -2,7 +2,7 @@
     "name": "sntools/core",
     "description": "Core tools of the SN Toolbox",
     "type": "library",
-    "keywords": [],
+    "keywords": ["Object", "Properties"],
     "homepage": "https://github.com/sntools/core",
     "license": "MIT",
     "authors": [
@@ -29,6 +29,11 @@
     "autoload-dev": {
         "psr-4": {
             "SNTools\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.3"
         }
     }
 }
