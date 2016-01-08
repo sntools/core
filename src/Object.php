@@ -47,6 +47,8 @@ class Object {
      * @throws PropertyException
      */
     public function __get($name) {
+        $method = "__get_$name";
+        if(is_callable([$this, $method])) return $this->$method();
         throw new PropertyException(sprintf('%s::$%s : invalid property.', get_called_class(), $name));
     }
 
@@ -58,6 +60,8 @@ class Object {
      * @throws PropertyException
      */
     public function __set($name, $value) {
+        $method = "__set_$name";
+        if(is_callable([$this, $method])) return $this->$method($value);
         throw new PropertyException(sprintf('%s::$%s : attempt to write invalid property, using value %s.', get_called_class(), $name, print_r($value, true)));
     }
 
@@ -67,13 +71,14 @@ class Object {
      * @return boolean Is the propety set ?
      */
     public function __isset($name) {
+        $return = true;
         try {
             $ex = $this->$name; // If not set, will throw PropertyException
             // stored in $ex just to trick IDE into thinking $ex is used
-            return true;
         } catch (PropertyException $ex) {
-            return false;
+            $return = false;
         }
+        return $return;
     }
 
     /**
@@ -82,6 +87,8 @@ class Object {
      * @throws PropertyException
      */
     public function __unset($name) {
+        $method = "__unset_$name";
+        if(is_callable([$this, $method])) return $this->$method();
         throw new PropertyException(sprintf('%s::$%s : invalid attempt to delete property.', get_called_class(), $name));
     }
 
@@ -110,10 +117,9 @@ class Object {
      */
     protected static function __constructStatic() {
         static $init = false;
-        if ($init)
-            return true;
-        $init = true;
-        return false;
+        $return = $init;
+        if (!$init) $init = true;
+        return $return;
     }
 
 }
