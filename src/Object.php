@@ -34,6 +34,12 @@ namespace SNTools;
  * @license https://github.com/sntools/core/blob/master/LICENSE MIT
  */
 class Object {
+    /**
+     * List of subclasses that has been initiated
+     * Used to tell subclasses if they need to run their "static constructor".
+     * @var array
+     */
+    private static $iniClasses = array();
 
     /**
      * Property getters handler.
@@ -112,14 +118,24 @@ class Object {
      * The default static constructor does nothing besides checking if it has already been loaded.
      * Overrides to add new responsabilities that are to be loaded the first time an instance is created.
      * @example examples/DAO.php
-     * @staticvar boolean $init Has been initialized.
      * @return boolean Has been initialized
      */
     protected static function __constructStatic() {
-        static $init = false;
-        $return = $init;
-        if (!$init) $init = true;
+        $return = !in_array(get_called_class(), self::$iniClasses);
+        if(!$return) self::$iniClasses[] = get_called_class();
         return $return;
     }
 
+    /**
+     * Shortcut to create objects passing constructor arguments as an array.
+     * Normally this requires the use of reflection api.
+     * The class of desired object does not have to be a child class of Object.
+     * @param string $class class name
+     * @param array $args
+     * @return object Instance of the class
+     */
+    final public static function create($class, array $args) {
+        $refl = new ReflectionClass($class);
+        return $refl->newInstanceArgs($args);
+    }
 }
