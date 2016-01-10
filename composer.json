@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SNTools\\": ["src/", "src/legacy/"]
+            "SNTools\\": "src/"
         }
     },
     "autoload-dev": {
