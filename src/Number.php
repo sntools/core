@@ -247,4 +247,12 @@ class Number extends Object implements Comparable {
     public function increment() {
         $this->setValue($this->value + 1);
     }
+
+    public function __toString() {
+        return $this->__getValue();
+    }
+
+    public function hashCode() {
+        return $this->__getValue();
+    }
 }
