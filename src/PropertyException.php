@@ -24,16 +24,14 @@
  * THE SOFTWARE.
  */
 
-namespace SNTools\Exception;
+namespace SNTools;
 
 /**
- * Attempted to divide a number by zero.
+ * Exception related to property handling.
+ * Describes as an exception an error occured with a property handler
  *
  * @author Samy Naamani <samy@namani.net>
- * @license https://github.com/sntools/types/blob/master/LICENSE MIT
+ * @license https://github.com/sntools/core/blob/master/LICENSE MIT
+ * @see Object
  */
-class DivideByZeroException extends \UnexpectedValueException {
-    public function __construct(\Exception $previous = null) {
-        parent::__construct('Attempted dividing by zero.', 0, $previous);
-    }
-}
+class PropertyException extends \DomainException {}

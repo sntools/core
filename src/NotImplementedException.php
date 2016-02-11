@@ -24,24 +24,23 @@
  * THE SOFTWARE.
  */
 
-namespace SNTools\Exception;
+namespace SNTools;
 
-/**
- * Exception thrown when maximum number of items in memory is exceeded.
+/** 
+ * Exception for yet to be implemented features.
+ * Special exception for dev-only purposes. 
+ * When declaring a feature with the intent of writing it later
+ * make it throw this exception
  *
  * @author Samy Naamani <samy@namani.net>
- * @license https://github.com/sntools/types/blob/master/LICENSE MIT
- * @ignore
+ * @license https://github.com/sntools/core/blob/master/LICENSE MIT
  */
-class OutOfMemoryException extends \OutOfRangeException {
-    /**
-     * Exception constructor
-     * @staticvar string $message Exception message, generated once for all future exception of this type
-     * @param \Exception $previous Exception that caused this exception, if any
+class NotImplementedException extends \Exception {
+    /*
+     * Exception constructor.
+     * Exception constructor. The message is predefined.
      */
-    public function __construct(\Exception $previous = null) {
-        static $message = '';
-        if(empty($message)) $message = sprintf('Exceeded memory capability of %d items', PHP_INT_MAX);
-        parent::__construct($message, 0, $previous);
+    public function __construct() {
+        parent::__construct('Feature not implemented yet', 0, null);
     }
 }
